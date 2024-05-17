@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
 
+//import components
+import Home from './pages/Home';
+import Store from './pages/Store';
+import Item from './pages/Item';
+
+// import Routes and Route components
+import { Routes, Route } from 'react-router-dom';
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        //each individual route must be nested inside of the Routes component
+        <Routes>
+            {/* each route has a path and an element property */}
+            {/* setting "/" as the path means that will be the homepage */}
+            <Route path='/' element={<Home />} />
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+            {/* other paths will be what's shown in the url, without a "/" at the start */}
+            <Route path='store' element={<Store />} />
+
+            {/* having a ":" at the start indicates a dynamic route. This could be used for a product or item page */}
+            <Route path='store/:productId' element={<Item />} />
+        </Routes>
+    );
 }
 
-export default App
+export default App;
