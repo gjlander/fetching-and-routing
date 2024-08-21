@@ -3,7 +3,7 @@ import axios from 'axios';
 const getProducts = async () => {
     try {
         const response = await axios.get(
-            'https://fakestoreapi.com/products?limit=5'
+            'https://fakestoreapi.com/products?limit=6'
         );
         console.log(response);
         return response.data;

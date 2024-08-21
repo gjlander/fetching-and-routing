@@ -14,8 +14,10 @@ const Item = () => {
     }, [productId]);
     return (
         <div>
-            <h3>Item Page</h3>
-            <ItemCard {...item} />
+            <h3 className='text-center text-6xl m-6'>Item Page</h3>
+            <div className='w-1/2 m-auto'>
+                <ItemCard {...item} />
+            </div>
         </div>
     );
 };
